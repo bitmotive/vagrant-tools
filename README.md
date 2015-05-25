@@ -6,12 +6,11 @@ A collection of tools for building custom Vagrant boxes and managing development
 
 ### scripts/el6_vagrant_configuration.sh
 
-Run this on a Centos6.5/6.6 minimal VM image to prepare the machine for 
-packaging as a Vagrant box. 
-
-This script will update system software, create the vagrant user, and install 
-VirtualBox guest additions. Proper installation of the guest additions is vital
-for being able to mount shared folders later.
+This script will prepare a Centos 6.5/6.6 VM image in VirtualBox for
+packaging as a Vagrant box. It will update system software, create 
+the vagrant user, and install the VirtualBox guest additions. Proper 
+installation of the guest additions is vital for being able to mount 
+shared folders later.
 
 ### scripts/package_vagrantbox.sh
 
@@ -57,8 +56,6 @@ $ scp el6_vagrant_configuration.sh root@x.x.x.x:/root/.
 $ ssh root@x.x.x.x
 $ bash /root/el6_vagrant_configuration.sh
 ```
-
-When prompted, use the VirtualBox GUI to insert the Guest Additions CD.
 
 4. Run the vagrant packager to create a new box
 
