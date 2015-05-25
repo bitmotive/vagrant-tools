@@ -31,34 +31,34 @@ box.
 ## Instructions for Building a Vagrant Box 
 
 1. Prepare VirtualBox by adding vbox0 interface
-
-```shell
-$ bash virtualbox_settings_configuration.sh
-```
-
-Only run this command one time per VirtualBox installation.
-
+    
+    ```shell
+    $ bash virtualbox_settings_configuration.sh
+    ```
+    
+    Only run this command one time per VirtualBox installation.
+    
 2. Install EL6 Minimal ISO image in VirtualBox
-
-  * Download Centos 6.6 minimal ISO from mirror (always checksum).
-  * Configure VM to have primary (eth0) and secondary (eth1) interfaces. 
-The eth0 interface should be setup as the VLAN and tied to the host-only
-adapter, while eth1 should be setup as the "public" bridged adapter or 
-NAT'd against the host OS. You will need to create teh ifcfg-eth1 script
-manually.
-  * run `service network restart` and verify IP addresses exist for both eth0 and eth1
-  * On Centos 6.5/6.6, run `rm /etc/udev/rules.d/*.rules` to delete udev rules.
-
+    
+      * Download Centos 6.6 minimal ISO from mirror (always checksum).
+      * Configure VM to have primary (eth0) and secondary (eth1) interfaces. 
+        The eth0 interface should be setup as the VLAN and tied to the host-only
+        adapter, while eth1 should be setup as the "public" bridged adapter or 
+        NAT'd against the host OS. You will need to create teh ifcfg-eth1 script
+        manually.
+      * run `service network restart` and verify IP addresses exist for both eth0 and eth1
+      * On Centos 6.5/6.6, run `rm /etc/udev/rules.d/*.rules` to delete udev rules.
+    
 3. Run el6_vagrant_configuration.sh on EL6 VM
-
-```shell
-$ scp el6_vagrant_configuration.sh root@x.x.x.x:/root/.
-$ ssh root@x.x.x.x
-$ bash /root/el6_vagrant_configuration.sh
-```
-
+    
+    ```shell
+    $ scp el6_vagrant_configuration.sh root@x.x.x.x:/root/.
+    $ ssh root@x.x.x.x
+    $ bash /root/el6_vagrant_configuration.sh
+    ```
+    
 4. Run the vagrant packager to create a new box
-
-```shell
-$ bash package_vagrantbox.sh 
-```
+    
+    ```shell
+    $ bash package_vagrantbox.sh 
+    ```
